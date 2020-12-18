@@ -15,7 +15,27 @@ export default function Home() {
     state.searchResults.map((item)=>{
       console.log(item)
      return <div>
-       <div class="container border-bottom border-secondary">
+<div className="container border-bottom border-secondary ">
+<div className="clearfix">
+
+  <a className="text-decoration-none" href={item.volumeInfo.previewLink}>
+<img src={item.volumeInfo.imageLinks.thumbnail} className="col-md-6 float-md-start mb-3 ms-md-3 img-effect" alt="..."/>
+</a>
+  <div className="ml-3">
+  <p className="fs-2 fw-bold">{item.volumeInfo.title}</p>
+  <p className="fs-5">{item.volumeInfo.authors}</p>
+  <p className="fs-6 fw-light">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
+ <p className="fs-6">{item.volumeInfo.description}</p>
+  </div>
+
+
+
+
+ 
+</div>
+</div>
+
+       {/* <div class="container border-bottom border-secondary">
        
        <div class="row align-items-start"> 
        <div class="col">
@@ -28,23 +48,11 @@ export default function Home() {
       <p className="fs-5">{item.volumeInfo.authors}</p>
       <p className="fs-6">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
     </div>
-       </div>
+       </div> */}
     
       
 
-       </div>
-      
- {/* <p>TITLE:{item.volumeInfo.title}</p>
- <p>AUTHOR:{item.volumeInfo.authors}</p>
- <p>DESCRIPTION:{item.volumeInfo.description}</p>
- <p>IMAGE:{item.volumeInfo.imageLinks.thumbnail}</p>
- <p>LINK:{item.volumeInfo.previewLink}</p>
- <p>PUBLISHER:{item.volumeInfo.publisher}</p>
- <p>PUBDATE:{item.volumeInfo.publishedDate}</p> */}
-
-     </div>
-     
-
+</div>
     })
   }
 </React.Fragment>
