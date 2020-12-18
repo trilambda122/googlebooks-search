@@ -28,6 +28,7 @@ const handleSubmit = (e)=>{
     })
     inputRef.current.value = ''
     console.log(state)
+    console.log('--------DONE----')
   })
 }
 
@@ -37,7 +38,7 @@ const handleSubmit = (e)=>{
     <React.Fragment>
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
 <div className="container-fluid">
-    <a className="navbar-brand" href="#">Navbar</a>
+    <a className="navbar-brand " href="#"><img className="img-thumbnail" src='./imgs/books-75x75.png'/> BOOK SEARCH</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>

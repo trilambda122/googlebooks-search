@@ -13,7 +13,7 @@ const reducer = (state,action) => {
       return {
         ...state,
         search: action.search,
-        searchResults: action.searchResults
+        searchResults: action.searchResults.items
       }
       default:
         return state
