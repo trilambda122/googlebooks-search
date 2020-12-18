@@ -21,11 +21,22 @@ export default function Home() {
   <a className="text-decoration-none" href={item.volumeInfo.previewLink}>
 <img src={item.volumeInfo.imageLinks.thumbnail} className="col-md-6 float-md-start mb-3 ms-md-3 img-effect" alt="..."/>
 </a>
+
   <div className="ml-3">
-  <p className="fs-2 fw-bold">{item.volumeInfo.title}</p>
-  <p className="fs-5">{item.volumeInfo.authors}</p>
-  <p className="fs-6 fw-light">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
- <p className="fs-6">{item.volumeInfo.description}</p>
+  <button className="btn btn-outline-secondary justify-content-md-end" type="submit">Save</button>
+      <p className="fs-2 fw-bold">{item.volumeInfo.title}</p>
+      <p className="fs-5">{item.volumeInfo.authors}</p>
+      <p className="fs-6 fw-light">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
+    
+  
+
+  
+   
+  
+    
+ 
+   
+    <p className="fs-6">{item.volumeInfo.description}</p>
   </div>
 
 
