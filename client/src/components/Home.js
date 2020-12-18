@@ -23,19 +23,11 @@ export default function Home() {
 </a>
 
   <div className="ml-3">
-  <button className="btn btn-outline-secondary justify-content-md-end" type="submit">Save</button>
-      <p className="fs-2 fw-bold">{item.volumeInfo.title}</p>
+  {/* <button className="btn btn-outline-secondary justify-content-md-end mt-2" type="submit">Save</button> */}
+
+      <p className="fs-2 fw-bold"> <img  className="save-icon "src='./imgs/star.svg'/> {item.volumeInfo.title}</p>
       <p className="fs-5">{item.volumeInfo.authors}</p>
       <p className="fs-6 fw-light">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
-    
-  
-
-  
-   
-  
-    
- 
-   
     <p className="fs-6">{item.volumeInfo.description}</p>
   </div>
 
