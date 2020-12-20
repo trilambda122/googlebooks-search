@@ -1,64 +1,47 @@
 import React, {useState,useEffect,useContext} from 'react'
-import { useStoreContext } from "../utils/GlobalState";
 import Nav  from './Nav'
+import BookContext from '../context/books-context'
 
 
 export default function Home() {
 
-  const [state,dispatch]=useStoreContext();
+
+  const {searchResults}= useContext(BookContext)
+
 
 
   return (
-<React.Fragment>
+<div>
   <Nav/>
-  {
-    state.searchResults.map((item)=>{
-      console.log(item)
-     return <div>
-<div className="container border-bottom border-secondary ">
+
+
+{searchResults.map((singleBook)=>{
+
+return <div className="container border-bottom border-secondary ">
 <div className="clearfix">
 
-  <a className="text-decoration-none" href={item.volumeInfo.previewLink}>
-<img src={item.volumeInfo.imageLinks.thumbnail} className="col-md-6 float-md-start mb-3 ms-md-3 img-effect" alt="..."/>
+<a className="text-decoration-none" href={singleBook.volumeInfo.previewLink}>
+<img src={singleBook.volumeInfo.imageLinks.thumbnail} className="col-md-6 float-md-start mb-3 ms-md-3 img-effect" alt="..."/>
 </a>
 
-  <div className="ml-3">
-  {/* <button className="btn btn-outline-secondary justify-content-md-end mt-2" type="submit">Save</button> */}
+<div className="ml-3">
+{/* <button className="btn btn-outline-secondary justify-content-md-end mt-2" type="submit">Save</button> */}
 
-      <p className="fs-2 fw-bold"> <img  className="save-icon "src='./imgs/star.svg'/> {item.volumeInfo.title}</p>
-      <p className="fs-5">{item.volumeInfo.authors}</p>
-      <p className="fs-6 fw-light">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
-    <p className="fs-6">{item.volumeInfo.description}</p>
-  </div>
-
-
+    <p className="fs-2 fw-bold"> <img  className="save-icon "src='./imgs/star.svg'/> {singleBook.volumeInfo.title}</p>
+    <p className="fs-5">{singleBook.volumeInfo.authors}</p>
+    <p className="fs-6 fw-light">{singleBook.volumeInfo.publisher}  {singleBook.volumeInfo.publishedDate}</p>
+  <p className="fs-6">{singleBook.volumeInfo.description}</p>
+</div>
 
 
- 
+
+
+
 </div>
 </div>
 
-       {/* <div class="container border-bottom border-secondary">
-       
-       <div class="row align-items-start"> 
-       <div class="col">
-       <a className="text-decoration-none" href={item.volumeInfo.previewLink}>
-      <img className="mt-2 mb-2 img-effect" src={item.volumeInfo.imageLinks.thumbnail} alt='book'/>
-      </a>
-    </div>
-    <div class="col">
-      <p className="fs-2">{item.volumeInfo.title}</p>
-      <p className="fs-5">{item.volumeInfo.authors}</p>
-      <p className="fs-6">{item.volumeInfo.publisher}  {item.volumeInfo.publishedDate}</p>
-    </div>
-       </div> */}
-    
-      
-
+})}
 </div>
-    })
-  }
-</React.Fragment>
   )
 }
 
