@@ -1,4 +1,4 @@
-import {SEARCH, SEARCH_RESULTS, TOOGLE_SAVE} from './actions'
+import {SEARCH_RESULTS, ADD_BOOK_FAVORITES,REMOVE_BOOK_FAVORITES} from './actions'
 
 const bookReducer = (state,action) => {
 
@@ -9,8 +9,17 @@ const bookReducer = (state,action) => {
         ...state,
         searchResults: action.payload.items
       }
-      case TOOGLE_SAVE:
-      return {}
+      case ADD_BOOK_FAVORITES:
+      return {
+        ...state,
+        savedBooks: [...state.savedBooks, action.payload]
+      }
+      case REMOVE_BOOK_FAVORITES:
+        return {
+          ...state,
+          savedBooks: state.savedBooks.filter((book)=> book.id !== action.payload)
+        }
+      
       default:
         return state
   }
