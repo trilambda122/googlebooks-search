@@ -1,4 +1,4 @@
-import {SEARCH_RESULTS, ADD_BOOK_FAVORITES,REMOVE_BOOK_FAVORITES} from './actions'
+import {SEARCH_RESULTS, ADD_BOOK_FAVORITES,REMOVE_BOOK_FAVORITES,SET_FAVORITES_FROM_DATABASE} from './actions'
 
 const bookReducer = (state,action) => {
 
@@ -7,7 +7,7 @@ const bookReducer = (state,action) => {
     console.log('in the SEARCH')
       return {
         ...state,
-        searchResults: action.payload.items
+        searchResults: action.payload
       }
       case ADD_BOOK_FAVORITES:
       return {
@@ -19,6 +19,11 @@ const bookReducer = (state,action) => {
           ...state,
           savedBooks: state.savedBooks.filter((book)=> book.id !== action.payload)
         }
+        case SET_FAVORITES_FROM_DATABASE:
+          return {
+            ...state,
+            savedBooks: action.payload
+          }
       
       default:
         return state
