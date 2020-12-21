@@ -12,7 +12,7 @@ export default function Saved() {
      console.log('results from database ', resultsFromDatabase)
     })
    
-     },[])
+     },[savedBooks.length])
  
  
  
@@ -20,8 +20,6 @@ export default function Saved() {
 <React.Fragment>
   <Nav/>
   <h1>Saved</h1>
- {console.log('these are the saved books we are going to loop through ',savedBooks)}
-
   {savedBooks.map((singleBook)=>{
   return <div className="container border-bottom border-secondary " key={singleBook._id}>
 <div className="clearfix">
