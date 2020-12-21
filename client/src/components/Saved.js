@@ -1,7 +1,6 @@
 import React, {useEffect,useContext} from 'react'
 import Nav from './Nav'
 import BookContext from '../context/books-context'
-
 export default function Saved() {
  console.log('------IM IN THE SAVED COMPONENT ------')
   const {savedBooks,getSavedBooksFromDatabase, setFavoritesFromDatabase,removeBookFromFavorites,addBooktoFavorites}= useContext(BookContext)
@@ -35,9 +34,13 @@ export default function Saved() {
     <div className="ml-3">
         <p className="fs-2 fw-bold"> 
 
-        <img  className="save-icon "src='./imgs/stared.svg' onClick={()=>{
+
+
+<img  className="save-icon "src='./imgs/stared.svg' onClick={()=>{
           removeBookFromFavorites(singleBook)
         }} alt="Favorite"/> 
+   
+     
 
     
         {singleBook.title}</p>
