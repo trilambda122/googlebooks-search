@@ -9,7 +9,7 @@ import BookContext from '../context/books-context'
 export default function Nav() {
   
 const inputRef = useRef();
-const {returnedBooks, searchResults}= useContext(BookContext)
+const {returnedBooks, searchResults,createBookObject}= useContext(BookContext)
   
 const getSearchResults = async(searchStr)=>{
   const results = await api.getBook(searchStr)
@@ -21,8 +21,13 @@ const getSearchResults = async(searchStr)=>{
 const handleSubmit = (e)=>{
   console.log('--------HANDLING----(NAV.js)----')
   e.preventDefault()
-  getSearchResults(inputRef.current.value).then((result)=>{
-   returnedBooks(result.data)
+  let booksObjectFormated = []
+  getSearchResults(inputRef.current.value).then((results)=>{
+    results.data.items.map((result)=>{
+      const book = createBookObject(result)
+      booksObjectFormated.push(book)
+    })
+    returnedBooks(booksObjectFormated)
     inputRef.current.value = ''
     console.log('--------DONE----')
   })
@@ -63,8 +68,6 @@ const handleSubmit = (e)=>{
         <button className="btn btn-outline-secondary" type="submit">Search</button>
       </form>
 </nav>
-
-      
     </React.Fragment>
   )
 }
