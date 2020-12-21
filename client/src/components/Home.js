@@ -29,6 +29,7 @@ return <div className="container border-bottom border-secondary " key={singleBoo
 
               <a className="text-decoration-none" href={singleBook.link}>
               <img src={singleBook.image} className="col-md-6 float-md-start mb-3 ms-md-3 img-effect" alt="..."/>
+             
               </a>
 
               <div className="ml-3">
@@ -36,7 +37,7 @@ return <div className="container border-bottom border-secondary " key={singleBoo
                   {savedBooks.map(book => book._id).includes(singleBook._id)   ?  <img  className="save-icon "src='./imgs/stared.svg' onClick={()=>{removeBookFromFavorites(singleBook)}} alt="Favorite"/>  :  <img  className="save-icon "src='./imgs/star.svg' onClick={()=>{addBooktoFavorites(singleBook)}} alt="Could be a favorite"/>
                   
                   }
-                  {singleBook.title} {singleBook._id}</p>
+                  {singleBook.title}</p>
                   <p className="fs-5">{singleBook.authors}</p>
                   <p className="fs-6 fw-light">{singleBook.publisher}  {singleBook.publishedDate}</p>
                 <p className="fs-6">{singleBook.description}</p>
