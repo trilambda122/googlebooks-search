@@ -4,7 +4,6 @@ const bookReducer = (state,action) => {
 
   switch (action.type){
     case SEARCH_RESULTS:
-    console.log('in the SEARCH')
       return {
         ...state,
         searchResults: action.payload

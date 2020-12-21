@@ -6,7 +6,7 @@ import BookContext from '../context/books-context'
 export default function Home() {
 
 
-  const {searchResults, addBooktoFavorites, savedBooks, removeBookFromFavorites, getSavedBooksFromDatabase,createBookforDatabase,setFavoritesFromDatabase }= useContext(BookContext)
+  const {searchResults, addBooktoFavorites, savedBooks, removeBookFromFavorites, getSavedBooksFromDatabase,setFavoritesFromDatabase }= useContext(BookContext)
 
   // GET FAVORITES SAVED IN THE DATABASE AND ADD THEM TO THE STATE
   useEffect(()=>{
@@ -21,10 +21,9 @@ export default function Home() {
   return (
 <div>
   <Nav/>
-  {console.log('this is the inital state of saved books', savedBooks)}
 {searchResults.map((singleBook)=>{
 
-return <div className="container border-bottom border-secondary " key={singleBook._id}>
+return <div className="container border-bottom border-secondary " key={singleBook.etag}>
           <div className="clearfix">
 
               <a className="text-decoration-none" href={singleBook.link}>

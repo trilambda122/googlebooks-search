@@ -1,15 +1,13 @@
 import React, {useRef, useContext} from 'react'
-import { SEARCH } from '../context/actions';
 import api from '../utils/api'
 import BookContext from '../context/books-context'
-
-
-
+import { useHistory } from "react-router-dom";
 
 export default function Nav() {
   
+const history = useHistory()  
 const inputRef = useRef();
-const {returnedBooks, searchResults,createBookObject}= useContext(BookContext)
+const {returnedBooks,createBookObject}= useContext(BookContext)
   
 const getSearchResults = async(searchStr)=>{
   const results = await api.getBook(searchStr)
@@ -19,17 +17,17 @@ const getSearchResults = async(searchStr)=>{
 
 
 const handleSubmit = (e)=>{
-  console.log('--------HANDLING----(NAV.js)----')
   e.preventDefault()
   let booksObjectFormated = []
   getSearchResults(inputRef.current.value).then((results)=>{
     results.data.items.map((result)=>{
+      console.log("handling the submit request", result)
         const book = createBookObject(result)
         booksObjectFormated.push(book)
     })
     returnedBooks(booksObjectFormated)
     inputRef.current.value = ''
-    console.log('--------DONE----')
+   history.push('/')
   })
 }
 
@@ -42,7 +40,7 @@ const handleSubmit = (e)=>{
 <div className="container-fluid">
 
     <a className="navbar-brand" href="/">
-    <img className="img-thumbnail" src='./imgs/books-75x75.png'/>
+    <img className="img-thumbnail" src='./imgs/books-75x75.png' alt='book-icon'/>
     </a> 
     <a className="navbar-brand" aria-current="page" href="/">BOOK SEARCH</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
