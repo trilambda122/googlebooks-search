@@ -81,6 +81,7 @@ const createBookObject = (bookFromGoogle)=>{
 // need to check if thumbnail is undefined, and if so replace the image with a placeholder
     const image = bookFromGoogle && bookFromGoogle.volumeInfo.imageLinks ? bookFromGoogle.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150x200'
     return {
+      etage:bookFromGoogle.etag,
       _id: bookFromGoogle.id,
       title: bookFromGoogle.volumeInfo.title,
       authors: bookFromGoogle.volumeInfo.authors,

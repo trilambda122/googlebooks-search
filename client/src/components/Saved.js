@@ -2,14 +2,11 @@ import React, {useEffect,useContext} from 'react'
 import Nav from './Nav'
 import BookContext from '../context/books-context'
 export default function Saved() {
- console.log('------IM IN THE SAVED COMPONENT ------')
-  const {savedBooks,getSavedBooksFromDatabase, setFavoritesFromDatabase,removeBookFromFavorites,addBooktoFavorites}= useContext(BookContext)
+  const {savedBooks,getSavedBooksFromDatabase, setFavoritesFromDatabase,removeBookFromFavorites}= useContext(BookContext)
   useEffect(()=>{
-    console.log('USING the EFFECT')
     getSavedBooksFromDatabase()
     .then((resultsFromDatabase)=>{
      setFavoritesFromDatabase(resultsFromDatabase)
-     console.log('results from database ', resultsFromDatabase)
     })
    
      },[savedBooks.length])
@@ -21,7 +18,7 @@ export default function Saved() {
   <Nav/>
   <h1>Saved</h1>
   {savedBooks.map((singleBook)=>{
-  return <div className="container border-bottom border-secondary " key={singleBook._id}>
+  return <div className="container border-bottom border-secondary " key={singleBook.etag}>
 <div className="clearfix">
 
     <a className="text-decoration-none" href={singleBook.link}>
