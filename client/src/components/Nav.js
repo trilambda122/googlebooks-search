@@ -24,8 +24,8 @@ const handleSubmit = (e)=>{
   let booksObjectFormated = []
   getSearchResults(inputRef.current.value).then((results)=>{
     results.data.items.map((result)=>{
-      const book = createBookObject(result)
-      booksObjectFormated.push(book)
+        const book = createBookObject(result)
+        booksObjectFormated.push(book)
     })
     returnedBooks(booksObjectFormated)
     inputRef.current.value = ''
