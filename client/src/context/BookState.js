@@ -1,4 +1,4 @@
-import React, {useReducer, useEf} from 'react'
+import React, {useReducer} from 'react'
 import BookContext from './books-context'
 import bookReducer from './book-reducer'
 import {SEARCH_RESULTS, ADD_BOOK_FAVORITES,REMOVE_BOOK_FAVORITES,SET_FAVORITES_FROM_DATABASE} from './actions'
@@ -9,8 +9,8 @@ function BookState(props) {
     searchResults:[],
     savedBooks:[]
   }
-
- const [state, dispatch] = useReducer(bookReducer,initialState)
+  
+const [state, dispatch] = useReducer(bookReducer,initialState)
 
 // GET SAVED BOOKS FROM THE DATABASE
 
@@ -68,7 +68,6 @@ const removeBookFromFavorites = (book)=>{
 
 //SET FAVORITES FROM DATABASE
  const setFavoritesFromDatabase = (favoritesArrayFromDatabase)=>{
-  console.log('favorite books from database ', favoritesArrayFromDatabase)
   dispatch({
     type: SET_FAVORITES_FROM_DATABASE,
     payload: favoritesArrayFromDatabase
