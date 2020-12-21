@@ -75,37 +75,22 @@ const removeBookFromFavorites = (book)=>{
 
  }
 
-// CHECK IF ANT OF THE GOOGLE API RESULTS HAVE NULL OR UNDEFINED VALUES
-const checkforUndefined = (bookData)=>{
-   console.log('checking on book ', bookData.volumeInfo.title)
-   if (!bookData.volumeInfo.imageLinks.thumbnail === undefined){
-     console.log('book data is',bookData.volumeInfo.imageLinks.thumbnail)
-    
-     return {
-      ...bookData,
-      volumeInfo: {imageLinks :{thumbnail:'https://via.placeholder.com/150'}}
-    }
-   }
-  return false
-  }
-
 
 // MAKE BOOK OBJECT 
 const createBookObject = (bookFromGoogle)=>{
-  // if (checkforUndefined(bookFromGoogle)){
-  //   console.log('bookFromGoogle was undefined', bookFromGoogle)
-  // }else {
+// need to check if thumbnail is undefined, and if so replace the image with a placeholder
+    const image = bookFromGoogle && bookFromGoogle.volumeInfo.imageLinks ? bookFromGoogle.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/150x200'
     return {
       _id: bookFromGoogle.id,
       title: bookFromGoogle.volumeInfo.title,
       authors: bookFromGoogle.volumeInfo.authors,
       description: bookFromGoogle.volumeInfo.description ,
-      image: bookFromGoogle.volumeInfo.imageLinks.thumbnail,
+      image: image,
       link: bookFromGoogle.volumeInfo.previewLink,
       publisher: bookFromGoogle.volumeInfo.publisher,
       publishedDate: bookFromGoogle.volumeInfo.publishedDate
     }
-  // }
+ 
   }
 
   return (

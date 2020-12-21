@@ -1,7 +1,6 @@
 import React, {useEffect,useContext} from 'react'
 import Nav from './Nav'
 import BookContext from '../context/books-context'
-import {Redirect} from 'react-router-dom'
 
 export default function Saved() {
  console.log('------IM IN THE SAVED COMPONENT ------')
@@ -22,7 +21,7 @@ export default function Saved() {
 <React.Fragment>
   <Nav/>
   <h1>Saved</h1>
- 
+ {console.log('these are the saved books we are going to loop through ',savedBooks)}
 
   {savedBooks.map((singleBook)=>{
   return <div className="container border-bottom border-secondary " key={singleBook._id}>
@@ -38,8 +37,6 @@ export default function Saved() {
 
         <img  className="save-icon "src='./imgs/stared.svg' onClick={()=>{
           removeBookFromFavorites(singleBook)
-          console.log('clicked the star')
-         
         }} alt="Favorite"/> 
 
     
