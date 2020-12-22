@@ -17,11 +17,5 @@ export default function Error() {
 
 </div>
 
-
-
-    // <div>
-    //   <Nav/>
-    //   <h1>ERROR!!</h1>
-    // </div>
   )
 }

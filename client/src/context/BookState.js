@@ -26,7 +26,6 @@ return await API.savedBooks()
 const addBookToDatabse = async(book)=>{
   try {
     API.saveBook(book).then((data)=>{
-      console.log('book saved to database ', data)
     })
   }catch (error){ console.log(error)}
 }
@@ -35,7 +34,6 @@ const addBookToDatabse = async(book)=>{
 const removeBookFromDatabse = async(book)=>{
   try {
     API.deleteBook(book._id).then((data)=>{
-      console.log('book removed from the  database ', data)
     })
   }catch (error){ console.log(error)}
 }
@@ -62,7 +60,7 @@ const removeBookFromFavorites = (book)=>{
   removeBookFromDatabse(book)
   dispatch({
     type: REMOVE_BOOK_FAVORITES,
-    payload: book.id
+    payload: book._id
   })
 }
 
