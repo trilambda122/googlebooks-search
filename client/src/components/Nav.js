@@ -56,7 +56,7 @@ const handleSubmit = (e)=>{
             <a className="nav-link active navbar-text" aria-current="page" href="/">Home</a>
         </li>
         <li className="nav-item">
-            <a className="nav-link active navbar-text" aria-current="page" href="/saved">Saved</a>
+            <a className="nav-link active navbar-text" aria-current="page" href="/saved">Favorites</a>
         </li>
     </ul>
     </div>

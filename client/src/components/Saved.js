@@ -16,7 +16,6 @@ export default function Saved() {
  return (
 <React.Fragment>
   <Nav/>
-  <h1>Saved</h1>
   {savedBooks.map((singleBook)=>{
   return <div className="container border-bottom border-secondary " key={singleBook.etag}>
 <div className="clearfix">
