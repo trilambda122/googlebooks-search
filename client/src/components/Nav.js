@@ -18,13 +18,21 @@ const getSearchResults = async(searchStr)=>{
 
 const handleSubmit = (e)=>{
   e.preventDefault()
+ 
   let booksObjectFormated = []
   getSearchResults(inputRef.current.value).then((results)=>{
-    results.data.items.map((result)=>{
-      console.log("handling the submit request", result)
-        const book = createBookObject(result)
-        booksObjectFormated.push(book)
-    })
+if (results.data.items !== undefined) {
+  results.data.items.map((result)=>{
+    console.log("handling the submit request", result)
+      const book = createBookObject(result)
+      booksObjectFormated.push(book)
+  })
+
+} else {
+  console.log('results.data is empty')
+  history.push('/notfound')
+  return returnedBooks(booksObjectFormated)
+}
     returnedBooks(booksObjectFormated)
     inputRef.current.value = ''
    history.push('/')
