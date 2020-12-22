@@ -9,6 +9,7 @@
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run dev",
     "start:prod": "node server.js",
     "client": "cd ./client && npm start",
+    "install": "cd client && npm install",
     "dev": "concurrently --names 'server,client' --prefix-colors 'yellow,blue' \"node server.js \" \" npm run client \" ",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
