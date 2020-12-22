@@ -16,7 +16,7 @@ const bookReducer = (state,action) => {
       case REMOVE_BOOK_FAVORITES:
         return {
           ...state,
-          savedBooks: state.savedBooks.filter((book)=> book.id !== action.payload)
+          savedBooks: state.savedBooks.filter((book)=> book._id !== action.payload)
         }
         case SET_FAVORITES_FROM_DATABASE:
           return {
