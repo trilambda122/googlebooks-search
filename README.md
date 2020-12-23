@@ -27,12 +27,24 @@
 
 ---
 ## Description
+Application allowing the user to search  google's open book API and saves individual books to a database for long term storage
 
+The project utilizes MongoDB for the backend database and React for client-side rendering. Along with Bootstrap and customer CSS for styling 
+
+Some accomplishments in this project 
+1) Project uses function react components 
+2) Project uses global state and context hooks 
+3) Text descriptions  freely wrap-around book images in the list 
+4) Has multiple errors pages 
+5) Has various error and conditional checks to work around issues with the google API 
 
 
 ---
 
 ## Installtion requirments
+Currently deployed on heroku. 
+Follow standard proceedures for installing React-Express apllciations on your platform of choice 
+
 
 
 ---
