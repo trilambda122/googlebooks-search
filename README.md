@@ -4,7 +4,7 @@
 # Project name : Book Search
 ## Live project site can be acces here: 	[Book Search](https://hw21-google-books-search.herokuapp.com/)
 
-## Project Repo [hw19-user-directory](https://github.com/trilambda122/hw21-googlebooks-search)
+## Project Repo [Book Search](https://github.com/trilambda122/googlebooks-search)
 
 ---
 ## Table of Contents
